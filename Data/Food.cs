@@ -1,5 +1,6 @@
 namespace dot_net_backend_api.Data 
 {
+    // Food class database ORM
     public class Food
     {
         public int Id {get; set;}

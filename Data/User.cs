@@ -1,5 +1,6 @@
 namespace dot_net_backend_api.Data 
 {
+    // User class database ORM
     public class User
     {
         public int Id {get; set;}
