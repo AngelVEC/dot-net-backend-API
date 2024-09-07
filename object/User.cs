@@ -1,4 +1,4 @@
-namespace dot_net_backend_api.Data 
+namespace dot_net_backend_api.Object
 {
     // User class database ORM
     public class User

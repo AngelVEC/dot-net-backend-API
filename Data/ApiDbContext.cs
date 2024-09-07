@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using dot_net_backend_api.Object;
 
 namespace dot_net_backend_api.Data 
 {
@@ -28,6 +29,6 @@ namespace dot_net_backend_api.Data
 
         //Create the database
         public DbSet <User> Users { get; set;}
-        public DbSet <Food> foods { get; set; }
+        public DbSet <Food> Foods { get; set; }
     }
 }
