@@ -1,4 +1,5 @@
 using dot_net_backend_api.Data;
+using dot_net_backend_api.mutation;
 using dot_net_backend_api.Query;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,7 +12,8 @@ builder.Services.AddDbContext<ApiDbContext>(options =>
 //Graphql
 builder.Services
     .AddGraphQLServer()
-    .AddQueryType<Query>();
+    .AddQueryType<Query>()
+    .AddMutationType<Mutation>();
 
 var app = builder.Build();
 
