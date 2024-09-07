@@ -11,8 +11,8 @@ using dot_net_backend_api.Data;
 namespace dot_net_backend_API.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    [Migration("20240906103612_database")]
-    partial class database
+    [Migration("20240907052300_updatingpriceonfood")]
+    partial class updatingpriceonfood
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace dot_net_backend_API.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("dot_net_backend_api.Data.Food", b =>
+            modelBuilder.Entity("dot_net_backend_api.Object.Food", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,16 +36,15 @@ namespace dot_net_backend_API.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Price")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Price")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.ToTable("foods");
+                    b.ToTable("Foods");
                 });
 
-            modelBuilder.Entity("dot_net_backend_api.Data.User", b =>
+            modelBuilder.Entity("dot_net_backend_api.Object.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
