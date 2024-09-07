@@ -15,6 +15,7 @@ builder.Services
 
 var app = builder.Build();
 
+//To make /graphql accessable
 app.MapGraphQL();
 
 app.Run();
