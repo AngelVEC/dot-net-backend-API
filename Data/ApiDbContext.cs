@@ -30,5 +30,7 @@ namespace dot_net_backend_api.Data
         //Create the database
         public DbSet <User> users { get; set;}
         public DbSet <Food> foods { get; set; }
+        
+        public DbSet <Admin> admin { get; set; }
     }
 }
