@@ -14,12 +14,12 @@ public class Mutation
                 Password = password
             };
 
-            await dbContext.Users.AddAsync(user);
+            await dbContext.users.AddAsync(user);
             await dbContext.SaveChangesAsync();
             return user;
     }
 
-    public async Task<Food> CreateFoodAsync([Service] ApiDbContext dbContext, string foodname, int price)
+    public async Task<Food> CreateFoodAsync([Service] ApiDbContext dbContext, string foodname, float price)
     {
         var food = new Food
         {
@@ -27,7 +27,7 @@ public class Mutation
             Price = price,
         };
 
-        await dbContext.Foods.AddAsync(food);
+        await dbContext.foods.AddAsync(food);
         await dbContext.SaveChangesAsync();
         return food;
     }

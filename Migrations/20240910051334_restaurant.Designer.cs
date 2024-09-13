@@ -11,8 +11,8 @@ using dot_net_backend_api.Data;
 namespace dot_net_backend_API.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    [Migration("20240907052300_updatingpriceonfood")]
-    partial class updatingpriceonfood
+    [Migration("20240910051334_restaurant")]
+    partial class restaurant
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,7 +41,7 @@ namespace dot_net_backend_API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Foods");
+                    b.ToTable("foods");
                 });
 
             modelBuilder.Entity("dot_net_backend_api.Object.User", b =>
@@ -62,7 +62,7 @@ namespace dot_net_backend_API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("users");
                 });
 #pragma warning restore 612, 618
         }
