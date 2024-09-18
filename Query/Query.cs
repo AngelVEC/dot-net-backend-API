@@ -19,9 +19,21 @@ namespace dot_net_backend_api.Query
             return await dbContext.foods.ToListAsync();
         }
 
-        public async Task<List<Admin>> AdminAsync([Service] ApiDbContext dbContext)
+        public async Task<List<Admin>> AllAdminAsync([Service] ApiDbContext dbContext)
         {
             return await dbContext.admin.ToListAsync();
+        }
+
+        public bool AdminCheck([Service] ApiDbContext dbContext, string username, string password)
+        {
+        var foodData = dbContext.admin.Where(e => e.UserName == username && e.Password == password).FirstOrDefault();
+        
+        if (foodData != null)
+        {
+            return true;
+        }
+
+        return false;
         }
     }
 }
