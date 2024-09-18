@@ -14,18 +14,28 @@ public class Mutation
                 Password = password
             };
 
-            await dbContext.users.AddAsync(user);
+            var userIsAvailable = dbContext.users.Where(e => e.UserName == username).FirstOrDefault();
 
-            //If it write to the database will return any number above 0
-            var result = await dbContext.SaveChangesAsync();
-            if (result > 0)
+            if (userIsAvailable == null)
             {
-                return true;
+                await dbContext.users.AddAsync(user);
+
+                //If it write to the database will return any number above 0
+                var result = await dbContext.SaveChangesAsync();
+                if (result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
                 return false;
             }
+
     }
 
         public async Task<bool> CreateAdminAsync([Service] ApiDbContext dbContext, string username, string password)
