@@ -26,14 +26,26 @@ namespace dot_net_backend_api.Query
 
         public bool AdminCheck([Service] ApiDbContext dbContext, string username, string password)
         {
-        var foodData = dbContext.admin.Where(e => e.UserName == username && e.Password == password).FirstOrDefault();
-        
-        if (foodData != null)
-        {
-            return true;
+            var adminData = dbContext.admin.Where(e => e.UserName == username && e.Password == password).FirstOrDefault();
+            
+            if (adminData != null)
+            {
+                return true;
+            }
+
+            return false;
         }
 
-        return false;
+        public bool UserCheck([Service] ApiDbContext dbContext, string username, string password)
+        {
+            var userData = dbContext.users.Where(e => e.UserName == username && e.Password == password).FirstOrDefault();
+            
+            if (userData != null)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
