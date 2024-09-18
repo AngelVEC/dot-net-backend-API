@@ -26,9 +26,9 @@ namespace dot_net_backend_api.Query
 
         public bool AdminCheck([Service] ApiDbContext dbContext, string username, string password)
         {
-            var adminData = dbContext.admin.Where(e => e.UserName == username && e.Password == password).FirstOrDefault();
+            var checkingAdmin = dbContext.admin.Where(e => e.UserName == username && e.Password == password).FirstOrDefault();
             
-            if (adminData != null)
+            if (checkingAdmin != null)
             {
                 return true;
             }
@@ -38,9 +38,9 @@ namespace dot_net_backend_api.Query
 
         public bool UserCheck([Service] ApiDbContext dbContext, string username, string password)
         {
-            var userData = dbContext.users.Where(e => e.UserName == username && e.Password == password).FirstOrDefault();
+            var checkingUser = dbContext.users.Where(e => e.UserName == username && e.Password == password).FirstOrDefault();
             
-            if (userData != null)
+            if (checkingUser != null)
             {
                 return true;
             }
